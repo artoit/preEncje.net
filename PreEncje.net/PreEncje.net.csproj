@@ -3,8 +3,16 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>artoit.PreEncjeERP</RootNamespace>
-    <Authors>ARTOIT</Authors>
+    <Authors>ARTOIT (dev@artoit.pl)</Authors>
     <PackageProjectUrl>https://github.com/artoit/preEncje.net</PackageProjectUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Company>ARTOIT.PL</Company>
+    <Description>Biblioteczka obiektów wspomagająca serializację i deserializację plików XML dla Importera Dokumentów (Faktur/Zamówień) do Subiekta GT i nexo PRO. Biblioteczka została udostępniona, aby ułatwić developerom tworzenie własnych rozwiązań integrujących Subiekta z różnego rodzaju systemami zewnętrzny, przy pomocy naszego importera.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/artoit/preEncje.net</RepositoryUrl>
+    <PackageTags>erp subiekt xml nexo dokumenty dokumentów dokumentow faktur zamowien, zamówień</PackageTags>
+    <UserSecretsId>8f64f906-3eee-4d49-88be-c384a7c97d09</UserSecretsId>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
