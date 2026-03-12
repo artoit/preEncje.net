@@ -1,6 +1,6 @@
 ﻿namespace artoit.PreEncjeERP
 {
-    public enum ETypDokumentu_HandloMag { FS, PA, PAi, ZK, WZ, WZv, PZ, PZv, FZ, PW, RW, MM, FSk, FZk, RR, ZD };
+    public enum ETypDokumentu_HandloMag { FS, PA, PAi, ZK, WZ, WZv, PZ, PZv, FZ, PW, RW, MM, FSk, FZk, RR, ZD, FP, FSzal };
 
     public enum ERodzajTransakcjiVAT
     {

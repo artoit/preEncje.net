@@ -12,7 +12,7 @@
     <RepositoryUrl>https://github.com/artoit/preEncje.net</RepositoryUrl>
     <PackageTags>erp subiekt xml nexo dokumenty dokumentów dokumentow faktur zamowien, zamówień</PackageTags>
     <UserSecretsId>8f64f906-3eee-4d49-88be-c384a7c97d09</UserSecretsId>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

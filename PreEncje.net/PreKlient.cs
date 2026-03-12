@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace artoit.PreEncjeERP
 {
@@ -7,84 +8,61 @@ namespace artoit.PreEncjeERP
 
     public class PreKlient
     {
-        public EPreKlientTyp Typ { get; set; }
+        public EPreKlientTyp Typ { get; set; } = EPreKlientTyp.Firma;
+        public EPreKlientRodzajNaDok RodzajNaDok { get; set; } = EPreKlientRodzajNaDok.Nabywca;
 
-        public string Symbol { get; set; }
-        public string Nazwa { get; set; }
-        public string NazwaPelna { get; set; }
+        // nie działa w sferze public bool CzyJednorazowy { get; set; } = false;
 
-        public string OsobaImie { get; set; }
-        public string OsobaNazwisko { get; set; }
+        public string Symbol { get; set; } = null;
+        public string Nazwa { get; set; } = null;
+        public string NazwaPelna { get; set; } = null;
 
-        public string NIP { get; set; }
-        public string NIPUE { get; set; }
+        public string OsobaImie { get; set; } = null;
+        public string OsobaNazwisko { get; set; } = null;
 
-        public string Email { get; set; }
-        public string Telefon { get; set; }
+        public string OsobaPESEL { get; set; } = null;
 
-        public EPreKlientRodzajNaDok RodzajNaDok { get; set; }
-        public string NrRachunku { get; set; }
+        public string NIP { get; set; } = null;
+        public string NIPUE { get; set; } = null;
 
-        public bool ChceFV { get; set; }
+        public string REGON { get; set; }
 
-        public PreAdres AdresGlowny { get; set; }
-        
+        public string Email { get; set; } = null;
+        public string Telefon { get; set; } = null;
+
+
         /// <summary>
-        /// Null, gdy brak
+        /// Można wpisać łącznie z nazwą, czyli np.: "Bank ABC 01 1234 1234 0421 0421", ale też sam numer: "12 1234 8543 5313 5123" (może też być bez spacji)
         /// </summary>
-        public PreAdres AdresKoresp { get; set; }
+        public string NrRachunku { get; set; } = null;
 
+        public bool? ChceFV { get; set; } = null;
+
+        public bool? ZgodaNewsletter { get; set; } = null;
+
+        public PreAdres AdresGlowny { get; set; } = new PreAdres();
+
+        public PreAdres AdresKoresp { get; set; } = new PreAdres();
+
+        public string NipCzysty
+        {
+            get
+            {
+                string nipStr = NIP.Trim().Replace("-", "").Replace(" ", "");
+                Regex regex = new Regex("[a-zA-Z]");
+                string bezLiter = regex.Replace(nipStr, "");
+                return bezLiter;
+            }
+        }
 
         public PreKlient()
         {
-            Typ = EPreKlientTyp.Firma;
-            BudujObiekt();
+
         }
 
         public PreKlient(EPreKlientTyp typ)
         {
             Typ = typ;
-
-            BudujObiekt();
-        }
-
-        void BudujObiekt()
-        {
-            Symbol = "";
-            Nazwa = "";
-            NazwaPelna = "";
-
-            OsobaImie = "";
-            OsobaNazwisko = "";
-
-            NIP = "";
-            NIPUE = "";
-
-            Email = "";
-            Telefon = "";
-
-            RodzajNaDok = EPreKlientRodzajNaDok.Nabywca;
-            NrRachunku = "";
-
-            ChceFV = false;
-
-            AdresGlowny = new PreAdres();
-            AdresKoresp = null;
-        }
-
-        public bool MaPustyAdresGlowny()
-        {
-            try
-            {
-                if (AdresGlowny.Ulica == "" && AdresGlowny.Ulica == "" && AdresGlowny.Kod == "" && AdresGlowny.Miasto == "")
-                    return true;
-                else
-                    return false;
-            }
-            catch (Exception ex)
-            {
-                return true;
-            }
         }
     }
 }
