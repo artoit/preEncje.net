@@ -20,8 +20,6 @@ namespace artoit.PreEncjeERP
         public decimal Ilosc { get; set; } = 1;
         public decimal? Vat { get; set; } = null;
         public string JM { get; set; } = "szt.";
-
-        [XmlIgnoreAttribute]
         public string VatSymbol { get; set; } = null;
         public string OpisPozycji { get; set; } = null;
         public string KodDostawy { get; set; } = null;
